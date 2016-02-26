@@ -1,0 +1,27 @@
+<div class="container" ng-init="getTurma(id);">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Cadastrar Turma
+        </div>
+
+        <div class="panel-body">
+            <div class="alert alert-danger" ng-show="error.valid">
+                <strong>Ops!</strong> {{error.message}} <br/><br/>
+            </div>
+            <form>
+                <input type="hidden" ng-model="turma.id" />
+                <div class="form-group">
+                    <label for="turma-nome"> Nome da Turma</label>
+                    <input type="text" class="form-control" id="turma-nome" placeholder="Digite o nome da turma" ng-model="turma.description"/>
+                </div>
+                <div class="form-group">
+                    <label for="turma-horario">Horário da Aula</label>
+                    <input type="text" class="form-control" id="turma-horario" type="time" ng-model="turma.hour"/>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" ng-click="salvar(turma)">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

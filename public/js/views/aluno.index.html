@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="wrapper">
+        <h1>Alunas</h1>
+    </div>
+
+    <div class="wrapper ">
+        <a href="#/aluno/create" class="btn btn-primary">
+            << Cadastrar uma aluna >>
+        </a>
+    </div>
+    <br/>
+    <div class="form-inline">
+        <select class="form-control" ng-model="idTurma" ng-change="getAlunos(idTurma)" ng-init="getTurmas();" id="turma-filter">
+            <option value="{{turma.id}}" ng-repeat="turma in turmas" ng-selected="turma.id == idModel">{{turma.description}}</option>
+            <option value="0" ng-selected="idTurma == 0">Todos as alunas</option>
+        </select>
+    </div>
+</div>
+<br><br>
+<div class="container" ng-init="getAlunos(0)">
+    <table class="table">
+        <thead>
+            <th>
+                Aluna
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Turma
+            </th>
+            <th>
+                A&ccedil;&otilde;es
+            </th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="aluno in alunos">
+                <td>{{aluno.name}}</td>
+                <td>{{aluno.email}}</td>
+                <td>{{aluno.turma.description}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-pencil" alt="editar aluno" href="#/aluno/{{aluno.id}}"></a>
+                    <a class="glyphicon glyphicon-piggy-bank" alt="informar pagamento"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

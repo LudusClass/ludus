@@ -1,0 +1,39 @@
+<div class="container" ng-init="getTurmas()">
+    <div class="wrapper">
+        <h1>Turmas</h1>
+    </div>
+
+    <div class="wrapper ">
+        <a href="#/turma" class="btn btn-primary">
+            << Criar uma Turma >>
+        </a>
+
+    </div>
+</div>
+<br><br>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>
+                Turma
+            </th>
+            <th>
+                Hor&aacute;rio
+            </th>
+            <th>
+                A&ccedil;&otilde;es
+            </th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="turma in turmas">
+                <td>{{turma.description}}</td>
+                <td>{{turma.hour}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-user" alt="adicionar aluno"href="#/{{turma.id}}/aluno"></a>
+                    <a class="glyphicon glyphicon-pencil" alt="editar turma" href="#/turma/{{turma.id}}"></a>
+                    <a class="glyphicon glyphicon-remove" alt="excluir turma" ng-click="delete(turma.id)"></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
