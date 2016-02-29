@@ -158,7 +158,7 @@ angular.module('app.controllers',[])
                     .success(function(data,status) {
                         if (data == 1 && status == 200) {
                             $scope.error.valid = false;
-                            
+
                             if($location.url().substr(0,7) == '/aluno/')
                                 $location.path('/aluno');
                             else
@@ -205,5 +205,10 @@ angular.module('app.controllers',[])
             $scope.getTurmas = function(){
                obterTurmas();
             }
-        }]);
+        }])
+        .controller("PagamentoController",["$scope","$http","$location","$routeParams",
+            function($scope,$http,$location,$routeParams){
+                //variáveis
+                $scope.idAluno = 0;
+            }]);
 

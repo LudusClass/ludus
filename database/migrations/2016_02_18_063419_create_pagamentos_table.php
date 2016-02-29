@@ -16,8 +16,6 @@ class CreatePagamentosTable extends Migration
             $table->increments('id');
             $table->decimal('value');
             $table->date('pay_day');
-            $table->integer('due_day');
-            $table->decimal('mulct');
             $table->integer('aluno_id')->unsigned();
             $table->timestamps();
 

@@ -10,6 +10,7 @@
     </div>
     <br/>
     <div class="form-inline">
+        <label> Filtrar </label>
         <select class="form-control" ng-model="idTurma" ng-change="getAlunos(idTurma)" ng-init="getTurmas();" id="turma-filter">
             <option value="{{turma.id}}" ng-repeat="turma in turmas" ng-selected="turma.id == idModel">{{turma.description}}</option>
             <option value="0" ng-selected="idTurma == 0">Todos as alunas</option>
@@ -40,7 +41,7 @@
                 <td>{{aluno.turma.description}}</td>
                 <td>
                     <a class="glyphicon glyphicon-pencil" alt="editar aluno" href="#/aluno/{{aluno.id}}"></a>
-                    <a class="glyphicon glyphicon-piggy-bank" alt="informar pagamento"></a>
+                    <a class="glyphicon glyphicon-piggy-bank" alt="informar pagamento" href="#/{{aluno.id}}/pagamento"></a>
                 </td>
             </tr>
         </tbody>

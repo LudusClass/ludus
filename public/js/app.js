@@ -32,4 +32,16 @@ angular.module("app",['app.controllers',"ngRoute"])
                 templateUrl:"/js/views/aluno.create.edit.html",
                 controller:"AlunoController"
             })
+            .when("/pagamento/",{
+                templateUrl:"/js/views/pagamento.index.html",
+                controller:"PagamentoController"
+            })
+            .when("/:idAluno/pagamento",{
+                templateUrl:"/js/views/pagamento.create.edit.html",
+                controller:"PagamentoController"
+            })
+            .when("/pagamento/:id",{
+                templateUrl:"/js/views/pagamento.create.edit.html",
+                controller:"PagamentoController"
+            })
     })

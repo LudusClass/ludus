@@ -1,0 +1,96 @@
+<div class="container" ng-init="getAluno(id);">
+    <div class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Cadastrar Pagamento
+            </div>
+
+            <div class="panel-body">
+                <div class="form-inline">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>Nome da Aluna: </label>
+                            <span>Aimberê Rocha Mendonça</span>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label>Email </label>
+                            <span>Aimberê Rocha Mendonça</span>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            <label>Turma</label>
+                            <span>Aimberê Rocha Mendonça</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="form-inline row">
+                    <div class="form-group col-sm-4">
+                        <label for="pay-date">Data de pagamento: </label>
+                        <input type="date" id="pay-date" ng-model="pagamento.pay_day" class="form-control"/>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label for="pay-value">Valor: </label>
+                        <input type="date" id="pay-value" ng-model="pagamento.value" class="form-control"/>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <button class="btn btn-primary" ng-click="salvar(pagamento)">Salvar</button>
+                        <button class="btn btn-danger" ng-click="">Voltar para Alunos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="form-inline row">
+        <div class="col-sm-4">
+            <strong> Pagamentos de Fulano</strong>
+        </div>
+
+        <div class="col-sm-4">
+            <label> Ano </label>
+            <select class="form-control" ng-model="idTurma" ng-change="getAlunos(idTurma)" ng-init="getTurmas();" id="turma-filter">
+                <option value="{{turma.id}}" ng-repeat="turma in turmas" ng-selected="turma.id == idModel">{{turma.description}}</option>
+                <option value="0" ng-selected="idTurma == 0">Todos as alunas</option>
+            </select>
+        </div>
+
+        <div class="col-sm-4">
+            <label> M&ecirc;s </label>
+            <select class="form-control" ng-model="idTurma" ng-change="getAlunos(idTurma)" ng-init="getTurmas();" id="turma-filter">
+                <option value="{{turma.id}}" ng-repeat="turma in turmas" ng-selected="turma.id == idModel">{{turma.description}}</option>
+                <option value="0" ng-selected="idTurma == 0">Todos as alunas</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+            <th>
+                Data de Pagamento
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                A&ccedil;&otilde;es
+            </th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="aluno in alunos">
+                <td>{{aluno.name}}</td>
+                <td>{{aluno.email}}</td>
+                <td>{{aluno.turma.description}}</td>
+                <td>
+                    <a class="glyphicon glyphicon-pencil" alt="editar aluno" href="#/aluno/{{aluno.id}}"></a>
+                    <a class="glyphicon glyphicon-remove" alt="informar pagamento"></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
